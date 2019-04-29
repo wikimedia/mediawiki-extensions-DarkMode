@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"MusikAnimal"
+		]
+	},
+	"darkmode-desc": "The description of DarkMode used in Extension credits.",
+	"darkmode-link": "The link to enable/disable dark mode. Shown in the personal toolbar the top of the UI."
+}

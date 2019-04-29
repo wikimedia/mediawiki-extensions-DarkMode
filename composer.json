@@ -1,0 +1,18 @@
+{
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "^1.0",
+		"mediawiki/mediawiki-codesniffer": "^25.0",
+		"mediawiki/minus-x": "^0.3.2"
+	},
+	"scripts": {
+		"fix": [
+			"phpcbf",
+			"minus-xfix ."
+		],
+		"test": [
+			"parallel-lint . --exclude vendor",
+			"phpcs -p -s .",
+			"minus-x check ."
+		]
+	}
+}

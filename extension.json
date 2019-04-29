@@ -1,0 +1,40 @@
+{
+	"name": "DarkMode",
+	"version": "0.0.1",
+	"author": [
+		"MusikAnimal"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:DarkMode",
+	"descriptionmsg": "darkmode-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"AutoloadClasses": {
+		"MediaWiki\\Extension\\DarkMode\\Hooks": "includes/Hooks.php"
+	},
+	"Hooks": {
+		"PersonalUrls": "MediaWiki\\Extension\\DarkMode\\Hooks::onPersonalUrls"
+	},
+	"MessagesDirs": {
+		"DarkMode": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.DarkMode": {
+			"scripts": [
+				"ext.DarkMode.js"
+			],
+			"styles": [
+				"ext.DarkMode.less"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "DarkMode/resources"
+	},
+	"manifest_version": 2
+}
