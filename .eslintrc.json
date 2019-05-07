@@ -3,6 +3,12 @@
 	"extends": [
 		"wikimedia/client",
 		"wikimedia/jquery"
-	]
+	],
+	"globals": {
+		"mw": false
+	},
+	"rules": {
+		"no-jquery/no-global-selector": "off"
+	}
 }
 

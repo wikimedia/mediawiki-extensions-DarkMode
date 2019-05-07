@@ -15,7 +15,8 @@
 		"MediaWiki\\Extension\\DarkMode\\Hooks": "includes/Hooks.php"
 	},
 	"Hooks": {
-		"PersonalUrls": "MediaWiki\\Extension\\DarkMode\\Hooks::onPersonalUrls"
+		"PersonalUrls": "MediaWiki\\Extension\\DarkMode\\Hooks::onPersonalUrls",
+		"BeforePageDisplay": "MediaWiki\\Extension\\DarkMode\\Hooks::onBeforePageDisplay"
 	},
 	"MessagesDirs": {
 		"DarkMode": [
@@ -29,6 +30,13 @@
 			],
 			"styles": [
 				"ext.DarkMode.less"
+			],
+			"targets": [
+				"desktop"
+			],
+			"messages": [
+				"darkmode-link",
+				"darkmode-default-link"
 			]
 		}
 	},

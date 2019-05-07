@@ -1,0 +1,117 @@
+@darkmode-table-background-color: #ddd;
+@darkmode-border-color: #cdcbc8;
+@darkmode-link-color: #69f;
+@darkmode-link-visited-color: #709bbd;
+@darkmode-red-link-color: #ff6e6e;
+
+#pt-darkmode-link a:before {
+	content: '\263E'; /* Moon icon */
+	display: inline-block;
+}
+
+html.darkmode {
+	background-color: #000;
+
+	/* "Default mode" link */
+	#pt-darkmode-link a:before {
+		content: '\263C'; /* Sun icon */
+	}
+
+	&,
+	img,
+	video,
+	svg,
+	iframe,	/* some maps are iframes */
+	.mw-no-invert,
+	.mw-mmv-overlay,
+	.mw-mmv-pre-image,
+	.mw-kartographer-map,
+	.mw-kartographer-mapDialog-map {
+		filter: invert( 1 ) hue-rotate( 180deg );
+		-webkit-filter: invert( 1 ) hue-rotate( 180deg );
+	}
+
+	/* Backgrounds */
+	.toc,
+	.thumbinner,
+	#simpleSearch,
+	#searchInput,
+	#searchButton,
+	#searchGoButton,
+	table,
+	table.toccolours,
+	.wikitable,
+	.mw-notification {
+		background-color: @darkmode-table-background-color;
+	}
+
+	/* Borders */
+	body,
+	#mw-head,
+	#mw-panel,
+	#content.mw-body,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.toc,
+	div.thumbinner,
+	#simpleSearch,
+	#searchInput,
+	table.toccolours,
+	.mw-notification {
+		border-color: @darkmode-border-color;
+	}
+
+	.thumbimage {
+		border: 0;
+	}
+
+	/* Normal links */
+	a,
+	#mw-panel .portal .body li a,
+	.toctogglelabel,
+	.mw-parser-output a.external,
+	.mw-parser-output a.extiw,
+	.mw-parser-output a.extiw:active {
+		color: @darkmode-link-color;
+	}
+
+	/* Visited links */
+	a:visited,
+	#mw-panel .portal .body li a:visited {
+		color: @darkmode-link-visited-color;
+	}
+
+	/* Red links */
+	a.new,
+	.new a {
+		color: @darkmode-red-link-color;
+	}
+
+	/**
+	 * Skin-specific overrides
+	 */
+
+	.vectorTabs li a {
+		color: @darkmode-link-color;
+	}
+
+	/**
+	 * Non-MediaWiki overrides
+	 */
+
+	.infobox, /* English Wikipedia, most other wikis with infoboxes */
+	.infobox_v2 { /* French/Portuguese Wikipedia, etc. */
+		background-color: @darkmode-table-background-color;
+		border-color: @darkmode-border-color;
+	}
+
+	/* Maintenance templates you see atop some articles */
+	.ambox-content {
+		background-color: @darkmode-table-background-color;
+		border-color: @darkmode-border-color;
+	}
+}
