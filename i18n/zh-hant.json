@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"darkmode-desc": "適用於 MediaWiki 使用者介面的可切換暗黑模式",
+	"darkmode-link": "暗黑模式",
+	"darkmode-default-link": "預設模式"
+}

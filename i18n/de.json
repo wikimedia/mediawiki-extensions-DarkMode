@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mirzali"
+		]
+	},
+	"darkmode-desc": "Ein umschaltbarer Dunkelmodus für die MediaWiki-Benutzeroberfläche",
+	"darkmode-link": "Dunkler Modus",
+	"darkmode-default-link": "Standardmodus"
+}

@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"MusikAnimal"
+			"MusikAnimal",
+			"Umherirrender"
 		]
 	},
-	"darkmode-desc": "The description of DarkMode used in Extension credits.",
+	"darkmode-desc": "{{desc|name=Darkmode|url=https://www.mediawiki.org/wiki/Extension:DarkMode}}",
 	"darkmode-link": "The link to enable dark mode. Shown in the personal toolbar at the top of the UI.",
 	"darkmode-default-link": "The link to disable dark mode. Shown in the personal toolbar at the top of the UI"
 }
