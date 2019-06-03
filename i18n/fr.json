@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wladek92"
+			"Wladek92",
+			"Gomoko"
 		]
 	},
+	"darkmode-desc": "Un mode sombre basculable pour l’interface utilisateur MédiaWiki",
 	"darkmode-link": "Mode sombre",
 	"darkmode-default-link": "Mode par défaut"
 }
