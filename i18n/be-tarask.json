@@ -4,5 +4,7 @@
 			"Red Winged Duck"
 		]
 	},
-	"darkmode-desc": "Падключальны рэжым цёмнага інтэрфэйсу карыстальніка для MediaWiki"
+	"darkmode-desc": "Падключальны рэжым цёмнага інтэрфэйсу карыстальніка для MediaWiki",
+	"darkmode-link": "Цёмны рэжым",
+	"darkmode-default-link": "Звычайны рэжым"
 }
