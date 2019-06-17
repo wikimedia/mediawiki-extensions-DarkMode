@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Harvest"
+			"Harvest",
+			"Fitoschido"
 		]
 	},
-	"darkmode-link": "Modo Oscuro",
-	"darkmode-default-link": "Modo Predeterminado"
+	"darkmode-link": "Modo oscuro",
+	"darkmode-default-link": "Modo predeterminado"
 }
