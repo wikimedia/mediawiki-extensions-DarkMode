@@ -1,13 +1,13 @@
 {
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "^1.0",
-		"mediawiki/mediawiki-codesniffer": "28.0.0",
+		"mediawiki/mediawiki-codesniffer": "29.0.0",
 		"mediawiki/minus-x": "^0.3.2"
 	},
 	"scripts": {
 		"fix": [
-			"phpcbf",
-			"minus-xfix ."
+			"minus-xfix .",
+			"phpcbf"
 		],
 		"test": [
 			"parallel-lint . --exclude vendor",
