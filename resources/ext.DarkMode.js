@@ -5,7 +5,7 @@
 		e.preventDefault();
 		darkMode = !darkMode;
 
-		$( 'html' ).toggleClass( 'darkmode', darkMode );
+		$( document.documentElement ).toggleClass( 'darkmode', darkMode );
 		$( e.target ).text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
 	} );
 }() );
