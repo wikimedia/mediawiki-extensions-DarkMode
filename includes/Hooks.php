@@ -38,7 +38,7 @@ class Hooks {
 	 * @param OutputPage $output
 	 * @param Skin $skin Skin being used.
 	 */
-	public static function onBeforePageDisplay( $output, $skin ) {
+	public static function onBeforePageDisplay( OutputPage $output, Skin $skin ) {
 		if ( !self::shouldHaveDarkMode( $skin ) ) {
 			return;
 		}
@@ -52,7 +52,7 @@ class Hooks {
 	 * @param Skin $skin
 	 * @return bool
 	 */
-	private static function shouldHaveDarkMode( $skin ) {
+	private static function shouldHaveDarkMode( Skin $skin ) {
 		return $skin->getUser()->isLoggedIn() && $skin->getSkinName() !== 'minerva';
 	}
 }
