@@ -28,15 +28,20 @@
 			"scripts": [
 				"ext.DarkMode.js"
 			],
-			"styles": [
-				"ext.DarkMode.less"
-			],
 			"targets": [
 				"desktop"
 			],
 			"messages": [
 				"darkmode-link",
 				"darkmode-default-link"
+			]
+		},
+		"ext.DarkMode.styles": {
+			"styles": [
+				"ext.DarkMode.less"
+			],
+			"targets": [
+				"desktop"
 			]
 		}
 	},

@@ -43,8 +43,8 @@ class Hooks {
 			return;
 		}
 
-		// Load the JS module.
-		$output->addModules( [ 'ext.DarkMode' ] );
+		$output->addModules( 'ext.DarkMode' );
+		$output->addModuleStyles( 'ext.DarkMode.styles' );
 	}
 
 	/**
