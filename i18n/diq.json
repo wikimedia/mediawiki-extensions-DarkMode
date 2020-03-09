@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mirzali"
+			"Mirzali",
+			"Orbot707"
 		]
 	},
+	"darkmode-desc": "Mabênrıyê karberanê MediaWiki rê seba vurnayışi modo tarı",
 	"darkmode-link": "Uslıbo tari",
 	"darkmode-default-link": "Uslıbo standard"
 }
