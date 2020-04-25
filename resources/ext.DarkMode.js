@@ -5,7 +5,7 @@ $( function () {
 		e.preventDefault();
 		darkMode = !darkMode;
 
-		$( document.documentElement ).toggleClass( 'darkmode', darkMode );
+		$( document.documentElement ).toggleClass( 'client-dark-mode', darkMode );
 		$( e.target ).text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
 	} );
 } );
