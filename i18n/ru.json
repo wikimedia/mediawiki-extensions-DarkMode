@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"darkmode-desc": "Переключаемая тёмная тема для пользовательского интерфейса MediaWiki",
+	"darkmode-link": "Тёмная тема",
+	"darkmode-default-link": "Режим по умолчанию"
+}
