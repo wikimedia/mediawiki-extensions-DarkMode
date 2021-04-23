@@ -2,7 +2,8 @@
 	"name": "DarkMode",
 	"version": "0.0.1",
 	"author": [
-		"MusikAnimal"
+		"MusikAnimal",
+		"R4356th"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:DarkMode",
 	"descriptionmsg": "darkmode-desc",
@@ -15,8 +16,9 @@
 		"MediaWiki\\Extension\\DarkMode\\Hooks": "includes/Hooks.php"
 	},
 	"Hooks": {
-		"PersonalUrls": "MediaWiki\\Extension\\DarkMode\\Hooks::onPersonalUrls",
-		"BeforePageDisplay": "MediaWiki\\Extension\\DarkMode\\Hooks::onBeforePageDisplay"
+		"SkinAddFooterLinks": "MediaWiki\\Extension\\DarkMode\\Hooks::onSkinAddFooterLinks",
+		"BeforePageDisplay": "MediaWiki\\Extension\\DarkMode\\Hooks::onBeforePageDisplay",
+		"GetPreferences": "MediaWiki\\Extension\\DarkMode\\Hooks::onGetPreferences"
 	},
 	"MessagesDirs": {
 		"DarkMode": [
