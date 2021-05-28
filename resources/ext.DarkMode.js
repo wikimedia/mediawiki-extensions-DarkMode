@@ -2,10 +2,10 @@ $( function () {
 	var darkMode = document.documentElement.classList.contains( 'client-dark-mode' );
 
 	function updatetext() {
-		$( '#footer-places-darkmode-link a' ).text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
+		$( '#darkmode-link' ).text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
 	}
 	$( updatetext() );
-	$( '#footer-places-darkmode-link a' ).on( 'click', function ( e ) {
+	$( '#darkmode-link' ).on( 'click', function ( e ) {
 		e.preventDefault();
 		darkMode = !darkMode;
 

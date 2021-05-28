@@ -23,7 +23,7 @@ class Hooks {
 		}
 
 		if ( $key === 'places' ) {
-			$footerlinks['darkmode-link'] = Html::element( 'a', [ 'href' => '#' ], $skin->msg( 'darkmode-link' )->text() );
+			$footerlinks['darkmode-toggle'] = Html::element( 'a', [ 'href' => '#', 'id' => 'darkmode-link' ], $skin->msg( 'darkmode-link' )->text() );
 		}
 	}
 
