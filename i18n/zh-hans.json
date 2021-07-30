@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"TsuyaMarisa"
+		]
+	},
+	"darkmode-desc": "适用于 MediaWiki 使用者界面的可切换黑暗模式",
+	"darkmode-link": "黑暗模式",
+	"darkmode-default-link": "默认模式"
+}
