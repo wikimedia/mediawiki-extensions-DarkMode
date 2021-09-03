@@ -101,9 +101,9 @@ class Hooks implements
 	}
 
 	/**
-	 * Handler for PersonalUrls hook.
-	 * Add a "Dark mode" item to the personal links (usually at the top),
-	 *   if DarkModeTogglePosition is set to 'personal'.
+	 * Handler for SkinBuildSidebar hook.
+	 * Add a "Dark mode" item to the sidebar in the navigation portlet menu,
+	 *   if DarkModeTogglePosition is set to 'sidebar'.
 	 *
 	 * @param SkinTemplate $skin
 	 * @param array &$bar
