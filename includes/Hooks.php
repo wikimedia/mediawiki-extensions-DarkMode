@@ -144,9 +144,9 @@ class Hooks implements
 
 		$req = $out->getRequest();
 		$user = $skin->getUser();
-		if ( $req->getVal( 'usedarkmode' ) ) {
-			self::toggleDarkMode( $out );
-		} elseif ( $this->userOptionsLookup->getBoolOption( $user, 'darkmode' ) ) {
+		if ( $req->getVal( 'usedarkmode' ) ||
+			$this->userOptionsLookup->getBoolOption( $user, 'darkmode' )
+		) {
 			self::toggleDarkMode( $out );
 		}
 	}
