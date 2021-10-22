@@ -1,15 +1,10 @@
 $( function () {
-	var $link = $( '.darkmode-link' );
-
-	function updateText( darkMode ) {
-		$link.text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
-	}
-
-	$link.on( 'click', function ( e ) {
+	$( '.darkmode-link' ).on( 'click', function ( e ) {
 		e.preventDefault();
 
 		var darkMode = document.documentElement.classList.toggle( 'client-dark-mode' );
-		updateText( darkMode );
+
+		$( this ).text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
 		new mw.Api().saveOption( 'darkmode', darkMode ? 1 : 0 );
 	} );
 } );
