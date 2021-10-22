@@ -25,7 +25,10 @@
 	"HookHandlers": {
 		"main": {
 			"class": "MediaWiki\\Extension\\DarkMode\\Hooks",
-			"services": [ "MainConfig" ]
+			"services": [
+				"MainConfig",
+				"UserOptionsLookup"
+			]
 		}
 	},
 	"MessagesDirs": {

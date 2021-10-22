@@ -8,8 +8,8 @@ use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\PersonalUrlsHook;
 use MediaWiki\Hook\SkinAddFooterLinksHook;
 use MediaWiki\Hook\SkinBuildSidebarHook;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
 use Skin;
 use SkinTemplate;
@@ -39,11 +39,19 @@ class Hooks implements
 	/** @var string */
 	private $linkPosition;
 
+	/** @var UserOptionsLookup */
+	private $userOptionsLookup;
+
 	/**
 	 * @param Config $options
+	 * @param UserOptionsLookup $userOptionsLookup
 	 */
-	public function __construct( Config $options ) {
+	public function __construct(
+		Config $options,
+		UserOptionsLookup $userOptionsLookup
+	) {
 		$this->linkPosition = $options->get( 'DarkModeTogglePosition' );
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**
@@ -138,7 +146,7 @@ class Hooks implements
 		$user = $skin->getUser();
 		if ( $req->getVal( 'usedarkmode' ) ) {
 			self::toggleDarkMode( $out );
-		} elseif ( MediaWikiServices::getInstance()->getUserOptionsLookup()->getBoolOption( $user, 'darkmode' ) ) {
+		} elseif ( $this->userOptionsLookup->getBoolOption( $user, 'darkmode' ) ) {
 			self::toggleDarkMode( $out );
 		}
 	}
