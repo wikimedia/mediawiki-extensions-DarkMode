@@ -1,19 +1,17 @@
 $( function () {
-	var darkMode = document.documentElement.classList.contains( 'client-dark-mode' ),
-		$link = $( '.darkmode-link' );
+	var $link = $( '.darkmode-link' );
 
-	function updateText() {
+	function updateText( darkMode ) {
 		$link.text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
 	}
 
-	updateText();
+	updateText( document.documentElement.classList.contains( 'client-dark-mode' ) );
 
 	$link.on( 'click', function ( e ) {
 		e.preventDefault();
-		darkMode = !darkMode;
 
-		$( document.documentElement ).toggleClass( 'client-dark-mode', darkMode );
-		updateText();
+		var darkMode = document.documentElement.classList.toggle( 'client-dark-mode' );
+		updateText( darkMode );
 		new mw.Api().saveOption( 'darkmode', darkMode ? 1 : 0 );
 	} );
 } );
