@@ -5,8 +5,6 @@ $( function () {
 		$link.text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
 	}
 
-	updateText( document.documentElement.classList.contains( 'client-dark-mode' ) );
-
 	$link.on( 'click', function ( e ) {
 		e.preventDefault();
 

@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\DarkMode;
 
 use Config;
 use Html;
+use IContextSource;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\PersonalUrlsHook;
 use MediaWiki\Hook\SkinAddFooterLinksHook;
@@ -90,9 +91,10 @@ class Hooks implements
 			return;
 		}
 
+		$darkmode = $this->isDarkModeActive( $skin );
 		$insertUrls = [
 			'darkmode-toggle' => [
-				'text' => $skin->msg( 'darkmode-link' )->text(),
+				'text' => $skin->msg( $darkmode ? 'darkmode-default-link' : 'darkmode-link' )->text(),
 				'href' => '#',
 				'class' => self::CSS_CLASS,
 				'active' => false,
@@ -121,8 +123,9 @@ class Hooks implements
 			return;
 		}
 
+		$darkmode = $this->isDarkModeActive( $skin );
 		$bar['navigation'][] = [
-			'text' => $skin->msg( 'darkmode-link' )->text(),
+			'text' => $skin->msg( $darkmode ? 'darkmode-default-link' : 'darkmode-link' )->text(),
 			'href' => '#',
 			'class' => self::CSS_CLASS,
 		];
@@ -142,11 +145,7 @@ class Hooks implements
 		$out->addModules( 'ext.DarkMode' );
 		$out->addModuleStyles( 'ext.DarkMode.styles' );
 
-		$req = $out->getRequest();
-		$user = $skin->getUser();
-		if ( $req->getVal( 'usedarkmode' ) ||
-			$this->userOptionsLookup->getBoolOption( $user, 'darkmode' )
-		) {
+		if ( $this->isDarkModeActive( $skin ) ) {
 			self::toggleDarkMode( $out );
 		}
 	}
@@ -181,4 +180,15 @@ class Hooks implements
 	public static function toggleDarkMode( OutputPage $output ) {
 		$output->addHtmlClasses( 'client-dark-mode' );
 	}
+
+	/**
+	 * Is the Dark Mode active?
+	 * @param IContextSource $context
+	 * @return bool
+	 */
+	private function isDarkModeActive( IContextSource $context ): bool {
+		return $context->getRequest()->getVal( 'usedarkmode' ) ||
+			$this->userOptionsLookup->getBoolOption( $context->getUser(), 'darkmode' );
+	}
+
 }
