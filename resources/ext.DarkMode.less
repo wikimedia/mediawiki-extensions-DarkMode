@@ -27,11 +27,16 @@
 	.ext-darkmode-link::before {
 		content: '\263E'; /* Moon icon */
 		display: inline-block;
-	}
 
-	/* Vector 2022 has its own icon, set in Hooks.php */
-	.skin-vector-2022 .ext-darkmode-link::before {
-		display: none;
+		/* "Default mode" link */
+		.skin-night-mode-clientpref-1 & {
+			content: '\263C'; /* Sun icon */
+		}
+
+		/* Vector 2022 has its own icon, set in Hooks.php */
+		.skin-vector-2022 & {
+			display: none;
+		}
 	}
 
 	/* START OF DARKMODE STYLES */
@@ -40,11 +45,6 @@
 		/* Needed for some skins that have weird DOM structures and CSS such that elements don't appear over the <body> */
 		/* This also helps save energy on OLED displays (such as smart phones). */
 		background: #fff;
-
-		/* "Default mode" link */
-		.ext-darkmode-link::before {
-			content: '\263C'; /* Sun icon */
-		}
 
 		&,
 		img,
