@@ -146,7 +146,7 @@ class Hooks implements
 		$out->addModuleStyles( 'ext.DarkMode.styles' );
 
 		if ( $this->isDarkModeActive( $skin ) ) {
-			self::toggleDarkMode( $out );
+			$out->addHtmlClasses( 'client-dark-mode' );
 		}
 	}
 
@@ -171,14 +171,6 @@ class Hooks implements
 	 */
 	private static function shouldHaveDarkMode( Skin $skin ): bool {
 		return $skin->getSkinName() !== 'minerva';
-	}
-
-	/**
-	 * Allow others to toggle Dark Mode
-	 * @param OutputPage $output
-	 */
-	public static function toggleDarkMode( OutputPage $output ) {
-		$output->addHtmlClasses( 'client-dark-mode' );
 	}
 
 	/**
