@@ -188,8 +188,13 @@ class Hooks implements
 	 * @return bool
 	 */
 	private function isDarkModeActive( IContextSource $context ): bool {
-		return $context->getRequest()->getVal( 'usedarkmode' ) ||
-			$this->userOptionsLookup->getBoolOption( $context->getUser(), 'darkmode' );
+		$var = $context->getRequest()->getRawVal( 'usedarkmode' );
+		if ( $var === '0' || $var === '1' ) {
+			// On usedarkmode=0 or usedarkmode=1 overwrite the user setting.
+			return (bool)$var;
+		}
+		// On no parameter use the user setting.
+		return $this->userOptionsLookup->getBoolOption( $context->getUser(), 'darkmode' );
 	}
 
 }
