@@ -69,10 +69,11 @@ class Hooks implements
 		}
 
 		if ( $key === 'places' ) {
+			$darkmode = $this->isDarkModeActive( $skin );
 			$footerItems['darkmode-toggle'] = Html::element(
 				'a',
 				[ 'href' => '#', 'class' => self::CSS_CLASS ],
-				$skin->msg( 'darkmode-link' )->text()
+				$skin->msg( $darkmode ? 'darkmode-default-link' : 'darkmode-link' )->text()
 			);
 		}
 	}
