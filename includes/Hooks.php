@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\DarkMode;
 
 use Config;
+use ContextSource;
 use Html;
 use IContextSource;
 use MediaWiki\Hook\BeforePageDisplayHook;
@@ -69,11 +70,10 @@ class Hooks implements
 		}
 
 		if ( $key === 'places' ) {
-			$darkmode = $this->isDarkModeActive( $skin );
 			$footerItems['darkmode-toggle'] = Html::element(
 				'a',
 				[ 'href' => '#', 'class' => self::CSS_CLASS ],
-				$skin->msg( $darkmode ? 'darkmode-default-link' : 'darkmode-link' )->text()
+				$this->getMessageText( $skin )
 			);
 		}
 	}
@@ -92,10 +92,9 @@ class Hooks implements
 			return;
 		}
 
-		$darkmode = $this->isDarkModeActive( $skin );
 		$insertUrls = [
 			'darkmode-toggle' => [
-				'text' => $skin->msg( $darkmode ? 'darkmode-default-link' : 'darkmode-link' )->text(),
+				'text' => $this->getMessageText( $skin ),
 				'href' => '#',
 				'class' => self::CSS_CLASS,
 				'active' => false,
@@ -129,9 +128,8 @@ class Hooks implements
 			return;
 		}
 
-		$darkmode = $this->isDarkModeActive( $skin );
 		$bar['navigation'][] = [
-			'text' => $skin->msg( $darkmode ? 'darkmode-default-link' : 'darkmode-link' )->text(),
+			'text' => $this->getMessageText( $skin ),
 			'href' => '#',
 			'class' => self::CSS_CLASS,
 		];
@@ -181,6 +179,7 @@ class Hooks implements
 
 	/**
 	 * Is the Dark Mode active?
+	 *
 	 * @param IContextSource $context
 	 * @return bool
 	 */
@@ -192,6 +191,19 @@ class Hooks implements
 		}
 		// On no parameter use the user setting.
 		return $this->userOptionsLookup->getBoolOption( $context->getUser(), 'darkmode' );
+	}
+
+	/**
+	 * Get the initial message text for the dark mode toggle button.
+	 *
+	 * @param ContextSource $context
+	 * @return string
+	 */
+	private function getMessageText( ContextSource $context ): string {
+		return $context->msg( $this->isDarkModeActive( $context )
+			? 'darkmode-default-link'
+			: 'darkmode-link'
+		)->text();
 	}
 
 }
