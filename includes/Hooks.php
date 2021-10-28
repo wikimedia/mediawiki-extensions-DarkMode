@@ -147,7 +147,7 @@ class Hooks implements
 		$out->addModuleStyles( 'ext.DarkMode.styles' );
 
 		if ( $this->isDarkModeActive( $skin ) ) {
-			$out->addHtmlClasses( 'client-dark-mode' );
+			$out->addBodyClasses( 'client-dark-mode' );
 		}
 	}
 
