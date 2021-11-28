@@ -12,8 +12,8 @@
 	"requires": {
 		"MediaWiki": ">= 1.35.0"
 	},
-	"AutoloadClasses": {
-		"MediaWiki\\Extension\\DarkMode\\Hooks": "includes/Hooks.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\DarkMode\\": "includes/"
 	},
 	"Hooks": {
 		"SkinAddFooterLinks": "main",
