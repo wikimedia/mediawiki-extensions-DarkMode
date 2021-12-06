@@ -93,11 +93,16 @@ class Hooks implements
 
 		if ( array_key_exists( 'mytalk', $personal_urls ) ) {
 			$after = 'mytalk';
-		} else {
+		} elseif ( array_key_exists( 'anontalk', $personal_urls ) ) {
 			$after = 'anontalk';
+		} else {
+			$after = false;
+			$personal_urls += $insertUrls;
 		}
 
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, $after );
+		if ( $after ) {
+			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, $after );
+		}
 	}
 
 	/**
