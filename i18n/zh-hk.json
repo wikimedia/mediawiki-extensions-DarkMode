@@ -1,11 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly",
 			"铁桶"
 		]
 	},
-	"darkmode-desc": "MediaWiki使用者介面的可切換暗色模式",
+	"darkmode-desc": "MediaWiki用戶介面的可切換暗色模式",
 	"darkmode-link": "暗色模式",
 	"darkmode-default-link": "預設模式"
 }

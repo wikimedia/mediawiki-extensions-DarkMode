@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"TsuyaMarisa"
+			"TsuyaMarisa",
+			"铁桶"
 		]
 	},
-	"darkmode-desc": "适用于 MediaWiki 使用者界面的可切换黑暗模式",
-	"darkmode-link": "黑暗模式",
+	"darkmode-desc": "MediaWiki用户界面的可切换暗色模式",
+	"darkmode-link": "暗色模式",
 	"darkmode-default-link": "默认模式"
 }
