@@ -1,4 +1,5 @@
 {
+	"name": "DarkMode",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
