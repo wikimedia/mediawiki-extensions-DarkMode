@@ -3,10 +3,11 @@
 		"authors": [
 			"Gomoko",
 			"Thibaut120094",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
-	"darkmode-desc": "Un mode sombre basculable pour l’interface utilisateur MediaWiki",
+	"darkmode-desc": "Un mode sombre basculable pour l’interface utilisateur de MediaWiki",
 	"darkmode-link": "Mode sombre",
 	"darkmode-default-link": "Mode par défaut"
 }
