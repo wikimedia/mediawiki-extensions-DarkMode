@@ -36,7 +36,7 @@ class Hooks implements
 	];
 
 	/** @var string */
-	public const CSS_CLASS = 'darkmode-link';
+	public const CSS_CLASS = 'ext-darkmode-link';
 
 	/** @var string */
 	private $linkPosition;
@@ -65,17 +65,21 @@ class Hooks implements
 	 * @param array &$footerItems Array of URLs to add to.
 	 */
 	public function onSkinAddFooterLinks( Skin $skin, string $key, array &$footerItems ) {
-		if ( !self::shouldHaveDarkMode( $skin ) || $this->linkPosition !== self::POSITION_FOOTER ) {
+		if ( $key !== 'places' ||
+			!self::shouldHaveDarkMode( $skin ) ||
+			$this->linkPosition !== self::POSITION_FOOTER
+		) {
 			return;
 		}
 
-		if ( $key === 'places' ) {
-			$footerItems['darkmode-toggle'] = Html::element(
-				'a',
-				[ 'href' => '#', 'class' => self::CSS_CLASS ],
-				$this->getMessageText( $skin )
-			);
-		}
+		$footerItems['darkmode'] = Html::element(
+			'a',
+			$this->getLinkAttrs(
+				$skin,
+				'nwwmw-ui-icon mw-ui-icon-before mw-ui-icon-darkmode'
+			),
+			$this->getLinkText( $skin )
+		);
 	}
 
 	/**
@@ -93,19 +97,16 @@ class Hooks implements
 		}
 
 		$insertUrls = [
-			'darkmode-toggle' => [
-				'text' => $this->getMessageText( $skin ),
-				'href' => '#',
-				'class' => self::CSS_CLASS,
-				'active' => false,
-			]
+			'darkmode' => $this->getLinkAttrs( $skin ),
 		];
 
+		// Adjust placement based on whether user is logged in or out.
 		if ( array_key_exists( 'mytalk', $personal_urls ) ) {
 			$after = 'mytalk';
 		} elseif ( array_key_exists( 'anontalk', $personal_urls ) ) {
 			$after = 'anontalk';
 		} else {
+			// Fallback to showing at the end.
 			$after = false;
 			$personal_urls += $insertUrls;
 		}
@@ -128,11 +129,7 @@ class Hooks implements
 			return;
 		}
 
-		$bar['navigation'][] = [
-			'text' => $this->getMessageText( $skin ),
-			'href' => '#',
-			'class' => self::CSS_CLASS,
-		];
+		$bar['navigation'][] = $this->getLinkAttrs( $skin );
 	}
 
 	/**
@@ -150,7 +147,7 @@ class Hooks implements
 		$out->addModuleStyles( 'ext.DarkMode.styles' );
 
 		if ( $this->isDarkModeActive( $skin ) ) {
-			$out->addBodyClasses( 'client-dark-mode' );
+			$out->addBodyClasses( 'client-darkmode' );
 		}
 	}
 
@@ -194,12 +191,31 @@ class Hooks implements
 	}
 
 	/**
-	 * Get the initial message text for the dark mode toggle button.
+	 * @param ContextSource $context
+	 * @param string $additionalClasses
+	 * @return array
+	 */
+	private function getLinkAttrs( ContextSource $context, string $additionalClasses = '' ): array {
+		$active = $this->isDarkModeActive( $context );
+
+		return [
+			'text' => $this->getLinkText( $context ),
+			'href' => '#',
+			'class' => self::CSS_CLASS . ' ' . $additionalClasses,
+			'title' => $active
+				? 'darkmode-default-link-tooltip'
+				: 'darkmode-link-tooltip',
+			'icon' => $active ? 'moon' : 'bright',
+		];
+	}
+
+	/**
+	 * Get the initial message text for the dark mode toggle link.
 	 *
 	 * @param ContextSource $context
 	 * @return string
 	 */
-	private function getMessageText( ContextSource $context ): string {
+	private function getLinkText( ContextSource $context ): string {
 		return $context->msg( $this->isDarkModeActive( $context )
 			? 'darkmode-default-link'
 			: 'darkmode-link'
