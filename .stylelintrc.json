@@ -2,6 +2,7 @@
 	"extends": "stylelint-config-wikimedia",
 	"rules": {
 		"no-descending-specificity": null,
-		"selector-max-id": 1
+		"selector-max-id": 1,
+		"selector-pseudo-element-colon-notation": null
 	}
 }
