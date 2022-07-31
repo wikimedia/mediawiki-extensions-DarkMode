@@ -1,6 +1,6 @@
 {
 	"name": "DarkMode",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"author": [
 		"MusikAnimal",
 		"R4356th"
@@ -10,7 +10,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.38.0"
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\DarkMode\\": "includes/"
@@ -38,7 +38,11 @@
 	},
 	"ResourceModules": {
 		"ext.DarkMode": {
-			"scripts": [
+			"es6": true,
+			"dependencies": [
+				"oojs-ui.styles.icons-accessibility"
+			],
+			"packageFiles": [
 				"ext.DarkMode.js"
 			],
 			"targets": [
@@ -46,7 +50,9 @@
 			],
 			"messages": [
 				"darkmode-link",
-				"darkmode-default-link"
+				"darkmode-link-tooltip",
+				"darkmode-default-link",
+				"darkmode-default-link-tooltip"
 			]
 		},
 		"ext.DarkMode.styles": {

@@ -6,5 +6,7 @@
 	},
 	"darkmode-desc": "A toggleable dark mode for the MediaWiki user interface",
 	"darkmode-link": "Dark mode",
-	"darkmode-default-link": "Default mode"
+	"darkmode-link-tooltip": "Turn dark mode on",
+	"darkmode-default-link": "Default mode",
+	"darkmode-default-link-tooltip": "Turn dark mode off"
 }
