@@ -147,7 +147,11 @@ class Hooks implements
 		$out->addModuleStyles( 'ext.DarkMode.styles' );
 
 		if ( $this->isDarkModeActive( $skin ) ) {
-			$out->addBodyClasses( 'client-darkmode' );
+			// The class must be on the <html> element because the CSS filter creates a new stacking context.
+			// If we use the <body> instead (OutputPage::addBodyClasses), any fixed-positioned content
+			// will be hidden in accordance with the w3c spec: https://www.w3.org/TR/filter-effects-1/#FilterProperty
+			// Fixed elements may still be hidden in Firefox due to https://bugzilla.mozilla.org/show_bug.cgi?id=1650522
+			$out->addHtmlClasses( 'client-darkmode' );
 		}
 	}
 
