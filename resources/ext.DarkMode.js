@@ -7,7 +7,9 @@ $( () => {
 	$darkModeLink.on( 'click', ( e ) => {
 		e.preventDefault();
 
-		const darkMode = document.body.classList.toggle( 'client-darkmode' );
+		// NOTE: this must be on <html> element because the CSS filter creates a new stacking context.
+		// See comments in Hooks::onBeforePageDisplay() for more information.
+		const darkMode = document.documentElement.classList.toggle( 'client-darkmode' );
 
 		// Update the icon.
 		if ( darkMode ) {
