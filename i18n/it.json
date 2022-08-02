@@ -5,5 +5,7 @@
 		]
 	},
 	"darkmode-link": "Modalità scura",
-	"darkmode-default-link": "Modalità predefinita"
+	"darkmode-link-tooltip": "Attiva la modalità scura",
+	"darkmode-default-link": "Modalità predefinita",
+	"darkmode-default-link-tooltip": "Disattiva la modalità scura"
 }

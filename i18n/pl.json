@@ -7,5 +7,7 @@
 	},
 	"darkmode-desc": "Przełączany tryb ciemny dla interfejsu użytkownika MediaWiki",
 	"darkmode-link": "Tryb ciemny",
-	"darkmode-default-link": "Tryb domyślny"
+	"darkmode-link-tooltip": "Włącz tryb ciemny",
+	"darkmode-default-link": "Tryb domyślny",
+	"darkmode-default-link-tooltip": "Wyłącz tryb ciemny"
 }
