@@ -70,7 +70,8 @@
 	},
 	"config": {
 		"DarkModeTogglePosition": {
-			"value": "personal"
+			"value": "personal",
+			"description": "Where the dark mode toggle link should be placed: 'personal' – next to the user talk page link in personal URLs. 'footer' – in the footer, usually after the 'Disclaimer' link. 'sidebar' – in the sidebar within the navigation portlet."
 		}
 	},
 	"manifest_version": 2
