@@ -1,15 +1,6 @@
 {
 	"root": true,
-	"globals": {
-		"mw": false,
-		"$": false
-	},
-	"rules": {
-		"no-jquery/no-global-selector": "off"
-	},
 	"extends": [
-		"wikimedia/client-es6",
-		"wikimedia/jquery",
-		"wikimedia/mediawiki"
+		"wikimedia/server"
 	]
 }

@@ -7,7 +7,8 @@ $( () => {
 	$darkModeLink.on( 'click', ( e ) => {
 		e.preventDefault();
 
-		// NOTE: this must be on <html> element because the CSS filter creates a new stacking context.
+		// NOTE: this must be on <html> element because the CSS filter creates
+		// a new stacking context.
 		// See comments in Hooks::onBeforePageDisplay() for more information.
 		const darkMode = document.documentElement.classList.toggle( 'client-darkmode' );
 
@@ -23,8 +24,7 @@ $( () => {
 		}
 
 		// Use different CSS selectors for the dark mode link based on the skin.
-		// eslint-disable-next-line no-restricted-syntax
-		const labelSelector = [ 'vector', 'vector-2022', 'minerva' ].includes( mw.config.get( 'skin' ) ) ?
+		const labelSelector = [ 'vector', 'vector-2022', 'minerva' ].indexOf( mw.config.get( 'skin' ) ) !== -1 ?
 			'span:not(.mw-ui-icon)' :
 			'a';
 
