@@ -7,20 +7,19 @@ use ContextSource;
 use Html;
 use IContextSource;
 use MediaWiki\Hook\BeforePageDisplayHook;
-use MediaWiki\Hook\PersonalUrlsHook;
 use MediaWiki\Hook\SkinAddFooterLinksHook;
 use MediaWiki\Hook\SkinBuildSidebarHook;
+use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
 use Skin;
 use SkinTemplate;
-use Title;
 use User;
 
 class Hooks implements
 	SkinAddFooterLinksHook,
-	PersonalUrlsHook,
+	SkinTemplateNavigation__UniversalHook,
 	SkinBuildSidebarHook,
 	BeforePageDisplayHook,
 	GetPreferencesHook
@@ -83,15 +82,17 @@ class Hooks implements
 	}
 
 	/**
-	 * Handler for PersonalUrls hook.
+	 * Handler for SkinTemplateNavigation__UniversalHook.
 	 * Add a "Dark mode" item to the personal links (usually at the top),
 	 *   if DarkModeTogglePosition is set to 'personal'.
 	 *
-	 * @param array &$personal_urls
-	 * @param Title &$title
 	 * @param SkinTemplate $skin
+	 * @param array &$links
+	 * @return void This hook must not abort, it must return no value
+	 * @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 	 */
-	public function onPersonalUrls( &$personal_urls, &$title, $skin ): void {
+	public function onSkinTemplateNavigation__Universal( $skin, &$links ): void {
+		// phpcs:enable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 		if ( !self::shouldHaveDarkMode( $skin ) || $this->linkPosition !== self::POSITION_PERSONAL ) {
 			return;
 		}
@@ -101,18 +102,18 @@ class Hooks implements
 		];
 
 		// Adjust placement based on whether user is logged in or out.
-		if ( array_key_exists( 'mytalk', $personal_urls ) ) {
+		if ( array_key_exists( 'mytalk', $links['user-menu'] ) ) {
 			$after = 'mytalk';
-		} elseif ( array_key_exists( 'anontalk', $personal_urls ) ) {
+		} elseif ( array_key_exists( 'anontalk', $links['user-menu'] ) ) {
 			$after = 'anontalk';
 		} else {
 			// Fallback to showing at the end.
 			$after = false;
-			$personal_urls += $insertUrls;
+			$links['user-menu'] += $insertUrls;
 		}
 
 		if ( $after ) {
-			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, $after );
+			$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'], $insertUrls, $after );
 		}
 	}
 
