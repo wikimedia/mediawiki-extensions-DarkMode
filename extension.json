@@ -17,7 +17,7 @@
 	},
 	"Hooks": {
 		"SkinAddFooterLinks": "main",
-		"PersonalUrls": "main",
+		"SkinTemplateNavigation::Universal": "main",
 		"SkinBuildSidebar": "main",
 		"BeforePageDisplay": "main",
 		"GetPreferences": "main"
