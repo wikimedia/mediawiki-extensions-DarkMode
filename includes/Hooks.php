@@ -153,7 +153,10 @@ class Hooks implements
 			// If we use the <body> instead (OutputPage::addBodyClasses), any fixed-positioned content
 			// will be hidden in accordance with the w3c spec: https://www.w3.org/TR/filter-effects-1/#FilterProperty
 			// Fixed elements may still be hidden in Firefox due to https://bugzilla.mozilla.org/show_bug.cgi?id=1650522
-			$out->addHtmlClasses( 'client-darkmode' );
+			// client-darkmode is added for backwards compatibility.
+			$out->addHtmlClasses( [ 'skin-night-mode-clientpref-1', 'client-darkmode' ] );
+		} else {
+			$out->addHtmlClasses( 'skin-night-mode-clientpref-0' );
 		}
 	}
 
@@ -189,6 +192,7 @@ class Hooks implements
 	 */
 	private function isDarkModeActive( IContextSource $context ): bool {
 		$var = $context->getRequest()->getRawVal( 'usedarkmode' );
+
 		if ( $var === '0' || $var === '1' ) {
 			// On usedarkmode=0 or usedarkmode=1 overwrite the user setting.
 			return (bool)$var;
