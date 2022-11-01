@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Meno25",
 			"ديفيد"
 		]
 	},
 	"darkmode-desc": "وضع مظلم يمكن تبديله لواجهة مستخدم ميدياويكي",
 	"darkmode-link": "وضع الظلام",
-	"darkmode-default-link": "الوضع الافتراضي"
+	"darkmode-link-tooltip": "قم بتشغيل الوضع المظلم",
+	"darkmode-default-link": "الوضع الافتراضي",
+	"darkmode-default-link-tooltip": "قم بإيقاف تشغيل الوضع المظلم"
 }
