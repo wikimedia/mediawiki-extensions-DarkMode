@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Maxí"
+		]
+	},
+	"darkmode-link": "Dökkt þema",
+	"darkmode-link-tooltip": "Virkja dökkt þema",
+	"darkmode-default-link": "Sjálfgefið þema",
+	"darkmode-default-link-tooltip": "Slökkva á dökku þema"
+}
