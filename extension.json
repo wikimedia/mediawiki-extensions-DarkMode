@@ -45,9 +45,6 @@
 			"packageFiles": [
 				"ext.DarkMode.js"
 			],
-			"targets": [
-				"desktop"
-			],
 			"messages": [
 				"darkmode-link",
 				"darkmode-link-tooltip",
@@ -58,9 +55,6 @@
 		"ext.DarkMode.styles": {
 			"styles": [
 				"ext.DarkMode.less"
-			],
-			"targets": [
-				"desktop"
 			]
 		}
 	},
