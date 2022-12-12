@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Hedda",
-			"Mirzali"
+			"Mirzali",
+			"SaldırganSincap"
 		]
 	},
-	"darkmode-desc": "MediaWiki kullanıcı arayüzü için değiştirilebilen karanlık mod",
-	"darkmode-link": "Karanlık mod",
+	"darkmode-desc": "MediaWiki kullanıcı arayüzü için değiştirilebilen koyu modu",
+	"darkmode-link": "Koyu modu",
 	"darkmode-default-link": "Varsayılan mod"
 }
