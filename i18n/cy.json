@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Afalau"
+		]
+	},
+	"darkmode-desc": "Modd tywyll a gellid ei doglo ar gyfer rhyngwyneb defnyddiwr MediaWiki",
+	"darkmode-link": "Modd tywyll",
+	"darkmode-link-tooltip": "Troi'r modd tywyll ymlaen",
+	"darkmode-default-link": "Modd rhagosodedig",
+	"darkmode-default-link-tooltip": "Troi'r modd tywyll i ffwrdd"
+}
