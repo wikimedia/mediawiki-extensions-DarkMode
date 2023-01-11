@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"darkmode-desc": "Preklopljiv temni način za uporabniški vmesnik MediaWiki",
+	"darkmode-link": "Temni način",
+	"darkmode-link-tooltip": "Vklopi temni način",
+	"darkmode-default-link": "Privzeti način",
+	"darkmode-default-link-tooltip": "Izklopi temni način"
+}
