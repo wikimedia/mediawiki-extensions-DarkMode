@@ -6,5 +6,7 @@
 	},
 	"darkmode-desc": "Ett mörkt läge för MediaWikis användargränssnitt som kan slås på/av",
 	"darkmode-link": "Mörkt läge",
-	"darkmode-default-link": "Standardläge"
+	"darkmode-link-tooltip": "Aktivera mörkt läge",
+	"darkmode-default-link": "Standardläge",
+	"darkmode-default-link-tooltip": "Inaktivera mörkt läge"
 }
