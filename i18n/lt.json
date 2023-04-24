@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"darkmode-desc": "Įjungiamas tamsus režimas MediaWiki naudotojo sąsajai",
+	"darkmode-link": "Tamsus režimas",
+	"darkmode-link-tooltip": "Įjungti tamsų režimą",
+	"darkmode-default-link": "Numatytasis režimas",
+	"darkmode-default-link-tooltip": "Išjungti tamsų režimą"
+}
