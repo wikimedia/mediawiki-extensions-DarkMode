@@ -4,6 +4,7 @@
 			"Rooiratel"
 		]
 	},
+	"darkmode-desc": "'n Wisselbare donker modus vir die MediaWiki-gebruikerskoppelvlak",
 	"darkmode-link-tooltip": "Skakel donker modus aan",
 	"darkmode-default-link-tooltip": "Skakel donker modus af"
 }
