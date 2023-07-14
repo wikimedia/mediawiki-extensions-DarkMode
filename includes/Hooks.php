@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\DarkMode;
 
 use Config;
 use ContextSource;
+use ExtensionRegistry;
 use Html;
 use IContextSource;
 use MediaWiki\Hook\BeforePageDisplayHook;
@@ -176,7 +177,8 @@ class Hooks implements
 	 * @return bool
 	 */
 	private static function shouldHaveDarkMode( Skin $skin ): bool {
-		return $skin->getSkinName() !== 'minerva';
+		$name = $skin->getSkinName();
+		return !in_array( $name, ExtensionRegistry::getInstance()->getAttribute( 'DarkModeDisabled' ) );
 	}
 
 	/**
