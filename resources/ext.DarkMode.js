@@ -25,7 +25,7 @@ $( () => {
 
 		// Use different CSS selectors for the dark mode link based on the skin.
 		const labelSelector = [ 'vector', 'vector-2022', 'minerva' ].indexOf( mw.config.get( 'skin' ) ) !== -1 ?
-			'span:not(.mw-ui-icon)' :
+			'span:not( .mw-ui-icon, .vector-icon, .minerva-icon )' :
 			'a';
 
 		// Update the link text.
