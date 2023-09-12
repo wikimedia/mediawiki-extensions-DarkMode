@@ -55,13 +55,11 @@
 		.mw-no-invert,
 		.cdx-no-invert,
 		td .diffchange,
-		.skin-minerva .mw-notification-visible .mw-notification-content,
-		/* Images where we want to force inversion */
-		.mwe-math-element,
-		.mw-kartographer-map,
-		.mw-kartographer-mapDialog-map {
-			filter: invert( 1 ) hue-rotate( 180deg );
-			-webkit-filter: invert( 1 ) hue-rotate( 180deg );
+		.skin-minerva .mw-notification-visible .mw-notification-content {
+			&:not( .mw-invert ) {
+				filter: invert( 1 ) hue-rotate( 180deg );
+				-webkit-filter: invert( 1 ) hue-rotate( 180deg );
+			}
 		}
 
 		/* Reset overrides, needed where double application above isn't working. */
