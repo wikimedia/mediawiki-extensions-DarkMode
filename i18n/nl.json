@@ -8,5 +8,7 @@
 	},
 	"darkmode-desc": "Een configureerbare donkere modus voor de MediaWiki gebruikersinterface",
 	"darkmode-link": "Donkere modus",
-	"darkmode-default-link": "Standaardmodus"
+	"darkmode-link-tooltip": "Donkere modus inschakelen",
+	"darkmode-default-link": "Standaardmodus",
+	"darkmode-default-link-tooltip": "Donkere modus uitschakelen"
 }
