@@ -9,10 +9,6 @@
  * - Jdlrobson
  */
 
-/* Needed for some skins that have weird DOM structures and CSS such that elements don't appear over the <body> */
-/* This also helps save energy on OLED displays (such as smart phones). */
-@darkmode-background-color: #000;
-
 /* Table colors */
 @darkmode-table-background-color: #ddd;
 @darkmode-border-color: #cdcbc8;
@@ -40,7 +36,9 @@
 
 	/* START OF DARKMODE STYLES */
 	.client-darkmode {
-		background: #000;
+		/* Needed for some skins that have weird DOM structures and CSS such that elements don't appear over the <body> */
+		/* This also helps save energy on OLED displays (such as smart phones). */
+		background: #fff;
 
 		/* "Default mode" link */
 		.ext-darkmode-link::before {
