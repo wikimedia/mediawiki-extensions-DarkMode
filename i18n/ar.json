@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"ديفيد"
+			"ديفيد",
+			"Bachounda",
+			"Hubaishan",
+			"Meno25"
 		]
 	},
-	"darkmode-desc": "وضع مظلم يمكن تبديله لواجهة مستخدم ميدياويكي",
-	"darkmode-link": "وضع الظلام",
+	"darkmode-desc": "وضع داكن يمكن تبديله لواجهة مستخدم ميدياويكي",
+	"darkmode-link": "الوضع الداكن",
 	"darkmode-default-link": "الوضع الافتراضي"
 }
