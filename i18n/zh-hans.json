@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"GuoPC",
+			"LittlePaw365",
 			"TsuyaMarisa",
 			"铁桶"
 		]
 	},
-	"darkmode-desc": "MediaWiki用户界面的可切换暗色模式",
-	"darkmode-link": "暗色模式",
-	"darkmode-link-tooltip": "开启暗色模式",
+	"darkmode-desc": "MediaWiki用户界面的可开关深色模式",
+	"darkmode-link": "深色模式",
+	"darkmode-link-tooltip": "开启深色模式",
 	"darkmode-default-link": "默认模式",
-	"darkmode-default-link-tooltip": "关闭暗色模式"
+	"darkmode-default-link-tooltip": "关闭深色模式"
 }
