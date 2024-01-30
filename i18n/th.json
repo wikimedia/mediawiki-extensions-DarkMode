@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patsagorn Y."
+		]
+	},
+	"darkmode-desc": "โหมดมืดที่สลับได้สำหรับอินเทอร์เฟซผู้ใช้มีเดียวิกิ",
+	"darkmode-link": "โหมดมืด",
+	"darkmode-link-tooltip": "เปิดโหมดมืด",
+	"darkmode-default-link": "โหมดปกติ",
+	"darkmode-default-link-tooltip": "ปิดโหมดมืด"
+}
