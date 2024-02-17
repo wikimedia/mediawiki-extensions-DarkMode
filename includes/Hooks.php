@@ -213,9 +213,10 @@ class Hooks implements
 			'text' => $this->getLinkText( $context ),
 			'href' => '#',
 			'class' => self::CSS_CLASS . ' ' . $additionalClasses,
-			'title' => $active
-				? 'darkmode-default-link-tooltip'
-				: 'darkmode-link-tooltip',
+			'title' => $context->msg( $active ?
+				'darkmode-default-link-tooltip' :
+				'darkmode-link-tooltip'
+			)->text(),
 			'icon' => $active ? 'moon' : 'bright',
 		];
 	}
