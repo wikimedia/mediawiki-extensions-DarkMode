@@ -6,5 +6,7 @@
 	},
 	"darkmode-desc": "'Na modalità gnore luabbele pe l'inderfacce utende de MediaUicchi",
 	"darkmode-link": "Modalità gnore",
-	"darkmode-default-link": "Mode predefinite"
+	"darkmode-link-tooltip": "Attive 'a modalità gnore",
+	"darkmode-default-link": "Mode predefinite",
+	"darkmode-default-link-tooltip": "Disattive 'a modalità gnore"
 }
