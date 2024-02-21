@@ -40,6 +40,8 @@
 		"ext.DarkMode": {
 			"es6": true,
 			"dependencies": [
+				"mediawiki.api",
+				"mediawiki.user",
 				"oojs-ui.styles.icons-accessibility"
 			],
 			"packageFiles": [
