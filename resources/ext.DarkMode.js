@@ -56,7 +56,7 @@ $( () => {
 				docClassList.remove( 'skin-night-mode-clientpref-1' );
 			}
 		}
-		updateLink( !darkMode );
+		updateLink( darkMode );
 
 		// Update the mobile theme-color
 		// eslint-disable-next-line no-jquery/no-global-selector
