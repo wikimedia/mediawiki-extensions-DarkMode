@@ -26,9 +26,13 @@ $( () => {
 			'span:not( .mw-ui-icon, .vector-icon, .minerva-icon )' :
 			'a';
 
-		// Update the link text.
+		// Update the link text and tooltip.
 		$darkModeLink.find( labelSelector )
-			.text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
+			.text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) )
+			.attr( 'title', mw.msg( darkMode ?
+				'darkmode-default-link-tooltip' :
+				'darkmode-link-tooltip'
+			) );
 	}
 
 	$darkModeLink.on( 'click', ( e ) => {
