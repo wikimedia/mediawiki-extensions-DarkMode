@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\DarkMode;
 
 use Config;
-use ContextSource;
 use ExtensionRegistry;
 use Html;
 use IContextSource;
@@ -202,11 +201,11 @@ class Hooks implements
 	}
 
 	/**
-	 * @param ContextSource $context
+	 * @param IContextSource $context
 	 * @param string $additionalClasses
 	 * @return array
 	 */
-	private function getLinkAttrs( ContextSource $context, string $additionalClasses = '' ): array {
+	private function getLinkAttrs( IContextSource $context, string $additionalClasses = '' ): array {
 		$active = $this->isDarkModeActive( $context );
 
 		return [
@@ -224,10 +223,10 @@ class Hooks implements
 	/**
 	 * Get the initial message text for the dark mode toggle link.
 	 *
-	 * @param ContextSource $context
+	 * @param IContextSource $context
 	 * @return string
 	 */
-	private function getLinkText( ContextSource $context ): string {
+	private function getLinkText( IContextSource $context ): string {
 		return $context->msg( $this->isDarkModeActive( $context )
 			? 'darkmode-default-link'
 			: 'darkmode-link'
