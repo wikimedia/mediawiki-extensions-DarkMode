@@ -154,9 +154,9 @@ class Hooks implements
 			// will be hidden in accordance with the w3c spec: https://www.w3.org/TR/filter-effects-1/#FilterProperty
 			// Fixed elements may still be hidden in Firefox due to https://bugzilla.mozilla.org/show_bug.cgi?id=1650522
 			// client-darkmode is added for backwards compatibility.
-			$out->addHtmlClasses( [ 'skin-night-mode-clientpref-1', 'client-darkmode' ] );
+			$out->addHtmlClasses( [ 'skin-theme-clientpref-night', 'client-darkmode' ] );
 		} else {
-			$out->addHtmlClasses( 'skin-night-mode-clientpref-0' );
+			$out->addHtmlClasses( 'skin-theme-clientpref-day' );
 		}
 	}
 
