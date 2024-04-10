@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"MathXplore",
-			"Waki285"
+			"Waki285",
+			"Salvare"
 		]
 	},
 	"darkmode-link": "ダークモード",
 	"darkmode-link-tooltip": "ダークモードをオンにする",
+	"darkmode-default-link": "デフォルトモード",
 	"darkmode-default-link-tooltip": "ダークモードをオフにする"
 }
