@@ -1,3 +1,5 @@
+@import 'mediawiki.skin.variables.less';
+
 /* WikimediaUI Dark Mode
  *
  * Wikimedia Design Team 2019-2021
@@ -199,4 +201,14 @@
 			background: #fff;
 		}
 	}
+}
+
+.mw-ui-icon-wikimedia-moon {
+	background: #000;
+	.cdx-mixin-css-icon( @cdx-icon-moon, @param-is-button-icon: true );
+}
+
+.mw-ui-icon-wikimedia-bright {
+	background: #000;
+	.cdx-mixin-css-icon( @cdx-icon-bright, @param-is-button-icon: true );
 }
