@@ -4,10 +4,11 @@
 			"TsuyaMarisa",
 			"铁桶",
 			"GuoPC",
-			"LittlePaw365"
+			"LittlePaw365",
+			"列维劳德"
 		]
 	},
-	"darkmode-desc": "MediaWiki用户界面的可开关深色模式",
+	"darkmode-desc": "适用于MediaWiki用户界面的可开关式深色模式",
 	"darkmode-link": "深色模式",
 	"darkmode-link-tooltip": "开启深色模式",
 	"darkmode-default-link": "默认模式",
