@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Samoasambia",
 			"Silvonen"
 		]
 	},
+	"darkmode-desc": "Vaihdettava tumma tila MediaWiki-käyttöliittymässä",
 	"darkmode-link": "Tumma tila",
-	"darkmode-default-link": "Oletustila"
+	"darkmode-link-tooltip": "Tumma tila päälle",
+	"darkmode-default-link": "Oletustila",
+	"darkmode-default-link-tooltip": "Tumma tila pois päältä"
 }
