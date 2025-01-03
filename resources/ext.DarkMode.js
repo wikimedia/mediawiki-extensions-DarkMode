@@ -1,7 +1,6 @@
 /**
  * Some code adapted from the enwiki gadget https://w.wiki/5Ktj
  */
-// eslint-disable-next-line strict
 $( () => {
 	// eslint-disable-next-line no-jquery/no-global-selector
 	const $darkModeLink = $( '.ext-darkmode-link' );
@@ -21,7 +20,6 @@ $( () => {
 				.addClass( 'mw-ui-icon-moon' );
 		}
 		// Use different CSS selectors for the dark mode link based on the skin.
-		// eslint-disable-next-line unicorn/prefer-includes
 		const labelSelector = [ 'vector', 'vector-2022', 'minerva' ].indexOf( mw.config.get( 'skin' ) ) !== -1 ?
 			'span:not( .mw-ui-icon, .vector-icon, .minerva-icon )' :
 			'a';
