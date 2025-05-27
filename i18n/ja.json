@@ -4,12 +4,13 @@
 			"MathXplore",
 			"Salvare",
 			"Waki285",
-			"Foomin10"
+			"Foomin10",
+			"Shirayuki"
 		]
 	},
 	"darkmode-desc": "MediaWikiユーザーインターフェースの切り替え可能なダークモード",
 	"darkmode-link": "ダークモード",
 	"darkmode-link-tooltip": "ダークモードをオンにする",
-	"darkmode-default-link": "デフォルトモード",
+	"darkmode-default-link": "既定のモード",
 	"darkmode-default-link-tooltip": "ダークモードをオフにする"
 }
