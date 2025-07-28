@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yueman"
+		]
+	},
+	"darkmode-desc": "MediaWiki用戶介面嘅可切換深色模式",
+	"darkmode-link": "深色模式",
+	"darkmode-link-tooltip": "開着深色模式",
+	"darkmode-default-link": "預設模式",
+	"darkmode-default-link-tooltip": "閂咗深色模式"
+}
