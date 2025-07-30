@@ -50,16 +50,18 @@ $( () => {
 		} else {
 			// If the user is logged in write with API to user settings
 			new mw.Api().saveOption( 'darkmode', darkMode ? '1' : '0' );
-			if ( darkMode ) {
-				docClassList.add( 'skin-theme-clientpref-night' );
-				docClassList.add( 'client-darkmode' );
-				docClassList.remove( 'skin-theme-clientpref-day' );
-			} else {
-				docClassList.add( 'skin-theme-clientpref-day' );
-				docClassList.remove( 'client-darkmode' );
-				docClassList.remove( 'skin-theme-clientpref-night' );
-			}
 		}
+
+		if ( darkMode ) {
+			docClassList.add( 'skin-theme-clientpref-night' );
+			docClassList.add( 'client-darkmode' );
+			docClassList.remove( 'skin-theme-clientpref-day' );
+		} else {
+			docClassList.add( 'skin-theme-clientpref-day' );
+			docClassList.remove( 'client-darkmode' );
+			docClassList.remove( 'skin-theme-clientpref-night' );
+		}
+
 		updateLink( darkMode );
 
 		// Update the mobile theme-color

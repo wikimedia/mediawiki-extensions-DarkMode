@@ -1,9 +1,9 @@
 {
 	"name": "DarkMode",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"author": [
 		"MusikAnimal",
-		"R4356th"
+		"Radman Siddiki"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:DarkMode",
 	"descriptionmsg": "darkmode-desc",
