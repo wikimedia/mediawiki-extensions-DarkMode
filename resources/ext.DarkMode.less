@@ -34,11 +34,6 @@
 		.skin-theme-clientpref-night & {
 			content: '\263C'; /* Sun icon */
 		}
-
-		/* Vector 2022 has its own icon, set in Hooks.php */
-		.skin-vector-2022 & {
-			display: none;
-		}
 	}
 
 	/* START OF DARKMODE STYLES */
@@ -52,8 +47,7 @@
 		video,
 		iframe, /* some maps are iframes */
 		.cdx-no-invert,
-		td .diffchange,
-		.skin-minerva .mw-notification-visible .mw-notification-content {
+		td .diffchange {
 			&:not( .mw-invert ) {
 				filter: invert( 1 ) hue-rotate( 180deg );
 				-webkit-filter: invert( 1 ) hue-rotate( 180deg );
@@ -61,9 +55,6 @@
 		}
 
 		/* Reset overrides, needed where double application above isn't working. */
-		/* Vector modern */
-		.skin-vector .mw-logo-wordmark,
-		.skin-vector .mw-logo-tagline,
 		.mw-no-invert,
 		img,
 		svg {
