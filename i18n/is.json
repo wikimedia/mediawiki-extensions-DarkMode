@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Maxí"
+			"Maxí",
+			"Sveinn í Felli"
 		]
 	},
+	"darkmode-desc": "Dökkur hamur fyrir notendaviðmót MediaWiki sem víxla má af/á.",
 	"darkmode-link": "Dökkt þema",
 	"darkmode-link-tooltip": "Virkja dökkt þema",
 	"darkmode-default-link": "Sjálfgefið þema",
