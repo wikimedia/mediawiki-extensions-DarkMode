@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Daud I.F. Argana",
-			"Veracious"
+			"Veracious",
+			"Penyuwangi"
 		]
 	},
 	"darkmode-desc": "Pilihan mode gelap untuk antarmuka pengguna MediaWiki",
 	"darkmode-link": "Mode gelap",
-	"darkmode-link-tooltip": "Aktifkan mode gelap",
+	"darkmode-link-tooltip": "Nyalakan mode gelap",
 	"darkmode-default-link": "Mode baku",
 	"darkmode-default-link-tooltip": "Matikan mode gelap"
 }
