@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aca",
 			"Winston Sung"
 		]
 	},
-	"darkmode-desc": "Mračni izgled korisničkog sučelja MediaWikija, sa mogućnošću za povratak osnovnog",
+	"darkmode-desc": "Mračni izgled korisničkog interfejsa MediaWikija, s mogućnošću za povratak osnovnog",
 	"darkmode-link": "Mračni izgled",
 	"darkmode-link-tooltip": "Uključi tamni izgled",
 	"darkmode-default-link": "Osnovni izgled",
