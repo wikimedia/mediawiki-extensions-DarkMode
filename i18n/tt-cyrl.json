@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ильгиз"
+		]
+	},
+	"darkmode-link": "Караңгы режим",
+	"darkmode-link-tooltip": "Караңгы режимны кабыз",
+	"darkmode-default-link": "Стандартлы режим",
+	"darkmode-default-link-tooltip": "Караңгы режимны сүндер"
+}
