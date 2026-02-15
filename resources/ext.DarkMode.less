@@ -49,8 +49,11 @@
 		background: #fff;
 
 		&,
+		img,
 		video,
+		svg,
 		iframe, /* some maps are iframes */
+		.mw-no-invert,
 		.cdx-no-invert,
 		td .diffchange,
 		.skin-minerva .mw-notification-visible .mw-notification-content {
@@ -64,13 +67,9 @@
 		/* Vector modern */
 		.skin-vector .mw-logo-wordmark,
 		.skin-vector .mw-logo-tagline,
-		.mw-no-invert,
-		img,
-		svg {
-			&:not( .mw-invert ) {
-				filter: none;
-				-webkit-filter: none;
-			}
+		.skin-timeless .mw-wiki-title > img,
+		.cdx-icon svg {
+			filter: none;
 		}
 
 		/* Backgrounds */
