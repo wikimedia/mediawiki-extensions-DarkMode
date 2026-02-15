@@ -44,8 +44,11 @@
 		background: #fff;
 
 		&,
+		img,
 		video,
+		svg,
 		iframe, /* some maps are iframes */
+		.mw-no-invert,
 		.cdx-no-invert,
 		td .diffchange {
 			&:not( .mw-invert ) {
@@ -55,9 +58,8 @@
 		}
 
 		/* Reset overrides, needed where double application above isn't working. */
-		.mw-no-invert,
-		img,
-		svg {
+		.skin-timeless .mw-wiki-title > img,
+		.cdx-icon svg {
 			&:not( .mw-invert ) {
 				filter: none;
 				-webkit-filter: none;
