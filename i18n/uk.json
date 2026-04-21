@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ата"
+			"Ата",
+			"Repakr"
 		]
 	},
 	"darkmode-desc": "Змінюваний темний режим для користувацького інтерфейсу MediaWiki",
 	"darkmode-link": "Темний режим",
-	"darkmode-default-link": "Стандартний режим"
+	"darkmode-link-tooltip": "Увімкнути темний режим",
+	"darkmode-default-link": "Стандартний режим",
+	"darkmode-default-link-tooltip": "Вимкнути темний режим"
 }
