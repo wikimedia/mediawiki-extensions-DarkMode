@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
-	"darkmode-link": "Däischtere Modus"
+	"darkmode-desc": "En ëmschaltbaren däischtere Modus fir d'MediaWiki-Benotzeruewerfläch",
+	"darkmode-link": "Däischtere Modus",
+	"darkmode-link-tooltip": "Däischtere Modus aktivéieren",
+	"darkmode-default-link": "Standardmodus",
+	"darkmode-default-link-tooltip": "Däischtere Modus desaktivéieren"
 }
