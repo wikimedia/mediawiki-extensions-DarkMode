@@ -16,6 +16,7 @@ use OutputPage;
 use Skin;
 use SkinTemplate;
 use User;
+use Wikimedia\ArrayUtils\ArrayUtils;
 
 class Hooks implements
 	SkinAddFooterLinksHook,
@@ -113,7 +114,12 @@ class Hooks implements
 		}
 
 		if ( $after ) {
-			$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'], $insertUrls, $after );
+			if ( method_exists( ArrayUtils::class, 'insertAfter' ) ) {
+				// MW 1.46+
+				$links['user-menu'] = ArrayUtils::insertAfter( $links['user-menu'], $insertUrls, $after );
+			} else {
+				$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'], $insertUrls, $after );
+			}
 		}
 	}
 
