@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"darkmode-desc": "Prepínateľný tmavý režim pre používateľské rozhranie MediaWiky",
+	"darkmode-link": "Tmavý režim",
+	"darkmode-link-tooltip": "Zapnúť tmavý režim",
+	"darkmode-default-link": "Predvolený režim",
+	"darkmode-default-link-tooltip": "Vypnúť tmavý režim"
+}
