@@ -1,15 +1,15 @@
 {
-	"name": "DarkMode",
+	"name": "DarkMode-gbf",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.26.0",
-		"grunt": "1.6.1",
-		"grunt-banana-checker": "0.11.1",
+		"eslint-config-wikimedia": "0.32.6",
+		"grunt": "1.6.3",
+		"grunt-banana-checker": "0.13.0",
 		"grunt-eslint": "24.3.0",
-		"grunt-stylelint": "0.19.0",
-		"stylelint-config-wikimedia": "0.16.1"
+		"grunt-stylelint": "0.21.0",
+		"stylelint-config-wikimedia": "0.19.4"
 	}
 }

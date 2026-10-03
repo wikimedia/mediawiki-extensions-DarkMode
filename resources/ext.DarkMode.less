@@ -1,187 +1,379 @@
-/* WikimediaUI Dark Mode
- *
- * Wikimedia Design Team 2019-2021
- * Original authors:
- * - Volker E.
- * - Alex Hollender
- * - MusikAnimal
- * - Carolyn Li-Madeo
- * - Jdlrobson
- */
+@import 'mediawiki.skin.variables.less';
 
-/* Table colors */
-@darkmode-table-background-color: #ddd;
-@darkmode-border-color: #cdcbc8;
-
-/* Link colors chosen for level AA conformance, see T233266 and T213778 */
-@darkmode-link-color: #36c;
-@darkmode-link-visited-color: #6b4ba1;
-@darkmode-red-link-color: #ff6e6e;
+@darkmode-background: #151a21;
+@darkmode-surface: #202731;
+@darkmode-raised: #2b3542;
+@darkmode-border: #485566;
+@darkmode-text: #e6eaf0;
+@darkmode-muted: #acb7c5;
+@darkmode-link: #8abaf0;
+@darkmode-visited: #c5a8ee;
+@darkmode-red: #ff9696;
 
 @media screen {
-	/* set height for Monobook and Timeless, because the filter in FF needs dimensions to get it to apply */
-	html {
-		height: 100%;
-	}
+	html.skin-theme-clientpref-night,
+	html.client-darkmode {
+		color-scheme: dark;
+		color: @darkmode-text;
+		background-color: @darkmode-background;
+		--color-base: @darkmode-text;
+		--color-subtle: @darkmode-muted;
+		--color-emphasized: @darkmode-text;
+		--color-progressive: @darkmode-link;
+		--color-destructive: @darkmode-red;
+		--color-link: @darkmode-link;
+		--color-link--visited: @darkmode-visited;
+		--color-link-red: @darkmode-red;
+		--background-color-base: @darkmode-surface;
+		--background-color-neutral: @darkmode-raised;
+		--background-color-neutral-subtle: @darkmode-background;
+		--background-color-interactive: @darkmode-raised;
+		--background-color-interactive-subtle: @darkmode-surface;
+		--background-color-interactive--hover: #354354;
+		--background-color-interactive--active: #3b4e63;
+		--background-color-disabled: @darkmode-raised;
+		--border-color-base: @darkmode-border;
+		--border-color-subtle: @darkmode-border;
+		--border-color-interactive: #718096;
+		--border-color-muted: @darkmode-border;
+		--color-inverted: #151a21;
+		--color-placeholder: @darkmode-muted;
+		--color-disabled: #8793a3;
 
-	/* START OF DARKMODE STYLES */
-	.skin-theme-clientpref-night,
-	.client-darkmode {
-		/* Needed for some skins that have weird DOM structures and CSS such that elements don't appear over the <body> */
-		/* This also helps save energy on OLED displays (such as smart phones). */
-		background: #fff;
-
-		&,
-		img,
-		video,
-		svg,
-		iframe, /* some maps are iframes */
-		.mw-no-invert,
-		.cdx-no-invert,
-		td .diffchange,
-		.skin-minerva .mw-notification-visible .mw-notification-content {
-			&:not( .mw-invert ) {
-				filter: invert( 1 ) hue-rotate( 180deg );
-				-webkit-filter: invert( 1 ) hue-rotate( 180deg );
-			}
+		body,
+		.mw-body {
+			color: @darkmode-text;
+			background-color: @darkmode-background;
 		}
 
-		/* Reset overrides, needed where double application above isn't working. */
-		/* Vector modern */
-		.skin-vector .mw-logo-wordmark,
-		.skin-vector .mw-logo-tagline,
-		.skin-timeless .mw-wiki-title > img,
-		.cdx-icon svg {
-			filter: none;
+		#content,
+		.mw-body,
+		.vector-header-container,
+		.vector-main-menu,
+		.vector-toc,
+		.vector-pinnable-header {
+			color: @darkmode-text;
+			background-color: @darkmode-surface;
+			border-color: @darkmode-border;
 		}
 
-		/* Backgrounds */
-		table,
-		table.ambox-content,
-		table.toccolours,
-		.mw-notification,
-		.mwe-popups,
-		.infobox,
-		.toc,
-		.thumbinner,
-		.wikitable,
-		.cbnnr-main,
-		.cx-callout,
-		#simpleSearch,
-		#searchInput,
-		#centralNotice .cnotice {
-			background-color: @darkmode-table-background-color;
-		}
-
-		/* Borders */
-		&,
 		h1,
 		h2,
 		h3,
 		h4,
 		h5,
-		h6,
-		table.ambox-content,
-		table.toccolours,
-		.mw-notification,
-		.infobox,
-		.toc,
-		.thumbinner,
-		#mw-head,
-		#mw-panel,
-		#content.mw-body,
-		#simpleSearch,
-		#searchInput,
-		#centralNotice .cnotice {
-			border-color: @darkmode-border-color;
+		h6 {
+			color: @darkmode-text;
+			border-color: @darkmode-border;
 		}
 
-		/* Links */
-		/* Links: normal */
+		hr {
+			background-color: @darkmode-border;
+			border-color: @darkmode-border;
+		}
+
 		a,
-		.vector-menu-tabs li a,
-		/* Backwards compatible VectorTabs, deprecated in MW 1.35 */
-		.vectorTabs li a,
-		.toctogglelabel,
+		.mw-collapsible-text,
 		.mw-parser-output a.external,
 		.mw-parser-output a.extiw,
-		.mw-parser-output a.extiw:active,
-		#mw-panel .portal .body li a {
-			color: @darkmode-link-color;
+		#mw-panel .vector-menu-content a {
+			color: @darkmode-link;
 		}
 
-		/* Visited links */
 		a:visited,
-		.mw-parser-output a.extiw:visited,
-		#mw-panel .portal .body li a:visited {
-			color: @darkmode-link-visited-color;
+		.mw-parser-output a.external:visited,
+		.mw-parser-output a.extiw:visited {
+			color: @darkmode-visited;
 		}
 
-		/* Links: red */
 		a.new,
-		.vector-menu-tabs li.new a,
-		.vectorTabs li.new a {
-			color: @darkmode-red-link-color;
+		a.new:visited {
+			color: @darkmode-red;
 		}
 
-		/* ::: Special Element Treatments ::: */
-		/* Image thumbnails */
-		.thumbimage {
-			border: 0;
+		#p-personal {
+			color: @darkmode-text;
+			background-color: @darkmode-surface;
+			text-shadow: none;
 		}
 
-		/* Content image (thumbnail) SVGs */
-		/* `*not( .mbox-image )` exception doesn't work for unclear reasons */
-		.image img[ src*='svg' ] {
-			background-color: #fff;
-			border-radius: 1px;
+		#pt-notifications-alert .mw-echo-notifications-badge {
+			background-image: url( 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Cpath fill=%22%23acb7c5%22 d=%22M16 7a5.38 5.38 0 0 0-4.46-4.85C11.6 1.46 11.53 0 10 0S8.4 1.46 8.46 2.15A5.38 5.38 0 0 0 4 7v6l-2 2v1h16v-1l-2-2zm-6 13a3 3 0 0 0 3-3H7a3 3 0 0 0 3 3%22/%3E%3C/svg%3E' );
 		}
 
-		/* Dealing with false positives from selector above */
-		.mw-echo-ui-notificationItemWidget-icon img[ src*='svg' ],
-		.mbox-image .image img[ src*='svg' ],
-		/* Vote symbols on Talk pages */
-		.image img[ alt^='Symbol' ] {
-			background-color: transparent;
+		#pt-notifications-notice .mw-echo-notifications-badge {
+			background-image: url( 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Cpath fill=%22%23acb7c5%22 d=%22M3 1a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm14 12h-4l-1 2H8l-1-2H3V3h14z%22/%3E%3C/svg%3E' );
 		}
 
-		/* Page previews */
-		.mwe-popups {
-			box-shadow: 0 30px 90px -20px rgba( 0, 0, 0, 0.3 ), 0 0 1px #000;
+		#mw-panel {
+			background-color: rgba( 21, 26, 33, 0.94 );
 		}
 
-		.mwe-popups.flipped-y::after,
-		.mwe-popups.flipped-x-y::after {
-			border-top: 11px solid @darkmode-table-background-color;
+		#mw-panel .vector-menu-heading,
+		#footer,
+		#siteSub,
+		#contentSub,
+		.mw-editsection,
+		.mw-editsection-bracket {
+			color: @darkmode-muted;
 		}
 
-		.mwe-popups.mwe-popups-no-image-pointer::after {
-			border-bottom: 11px solid @darkmode-table-background-color;
+		.vector-menu-tabs,
+		.vector-menu-tabs a,
+		.vector-menu-tabs li,
+		.vector-menu-dropdown .vector-menu-heading {
+			background-image: none;
 		}
 
-		/* Contributions menu */
-		html .cx-callout-1::after {
-			border-bottom-color: @darkmode-table-background-color;
+		.vector-menu-tabs li,
+		.vector-menu-dropdown .vector-menu-heading {
+			background-color: @darkmode-raised;
 		}
 
-		/* Mobile logo header */
-		html .branding-box img {
-			filter: brightness( 0 );
+		.vector-menu-tabs li.selected {
+			background-color: @darkmode-surface;
+		}
+
+		.vector-menu-tabs li a,
+		.vector-menu-dropdown .vector-menu-heading {
+			color: @darkmode-link;
+		}
+
+		.vector-menu-tabs li.selected a {
+			color: @darkmode-text;
+		}
+
+		.vector-menu-tabs li.new a {
+			color: @darkmode-red;
+		}
+
+		.vector-menu-dropdown .vector-menu-content,
+		.toc,
+		.catlinks,
+		.thumbinner,
+		.toccolours,
+		.mw-notification,
+		.mwe-popups,
+		.suggestions-results,
+		.suggestions-special,
+		.oo-ui-popupWidget-popup,
+		.oo-ui-menuSelectWidget,
+		.oo-ui-windowManager-modal .oo-ui-dialog {
+			color: @darkmode-text;
+			background-color: @darkmode-surface;
+			border-color: @darkmode-border;
+		}
+
+		#simpleSearch,
+		#p-search {
+			background-color: @darkmode-surface;
+			background-image: none;
+			border-color: @darkmode-border;
+		}
+
+		input:not( [ type='checkbox' ] ):not( [ type='radio' ] ):not( [ type='image' ] ),
+		textarea,
+		select,
+		button,
+		.mw-ui-button,
+		.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+		.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle {
+			color: @darkmode-text;
+			background-color: @darkmode-raised;
+			border-color: @darkmode-border;
+		}
+
+		input::placeholder,
+		textarea::placeholder {
+			color: @darkmode-muted;
+		}
+
+		.mw-ui-progressive,
+		.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+			color: #fff;
+			background-color: #315e91;
+			border-color: #709ccf;
+		}
+
+		/* stylelint-disable declaration-no-important */
+		.mw-ui-button.mw-ui-disabled {
+			color: @darkmode-muted !important;
+			background-color: @darkmode-raised !important;
+			border-color: @darkmode-border !important;
+		}
+		/* stylelint-enable declaration-no-important */
+
+		.suggestions-result,
+		.suggestions-special .special-label,
+		.suggestions-special .special-query {
+			color: @darkmode-text;
+		}
+
+		.suggestions-result-current,
+		.oo-ui-optionWidget-highlighted,
+		.oo-ui-optionWidget-selected {
+			color: @darkmode-text;
+			background-color: @darkmode-raised;
+		}
+
+		.mw-parser-output table.wikitable,
+		.mw-parser-output .infobox {
+			color: @darkmode-text;
+			background-color: @darkmode-surface;
+			border-color: @darkmode-border;
+		}
+
+		.mw-parser-output table.wikitable > * > tr > th,
+		.mw-parser-output table.wikitable > * > tr > td {
+			border-color: @darkmode-border;
+		}
+
+		.mw-parser-output table.wikitable > * > tr > th {
+			background-color: @darkmode-raised;
+		}
+
+		.mw-parser-output table.wikitable.stripe > * > tr:nth-child( even ) > td,
+		.mw-parser-output table.wikitable.stripe2 > * > tr:nth-child( 4n+1 ) > td,
+		.mw-parser-output table.wikitable.stripe2 > * > tr:nth-child( 4n+2 ) > td {
+			background-color: #252e3a;
+		}
+
+		pre,
+		code,
+		.mw-code,
+		.mw-highlight {
+			color: @darkmode-text;
+			background-color: @darkmode-background;
+			border-color: @darkmode-border;
+		}
+
+		.mw-parser-output .ambox,
+		.mw-parser-output .fmbox,
+		.mw-parser-output .tmbox,
+		.mw-parser-output .ombox,
+		.mw-warning,
+		.mw-message-box {
+			color: @darkmode-text;
+			background-color: @darkmode-raised;
+			border-color: @darkmode-border;
+		}
+
+		.mw-parser-output .tabber__tabs,
+		.mw-parser-output .tabber__panel {
+			border-color: @darkmode-border;
+		}
+
+		.mw-parser-output .tabber__tab,
+		.mw-parser-output .tabber__tab:visited {
+			color: @darkmode-link;
+			background: @darkmode-raised;
+			border-color: @darkmode-border;
+		}
+
+		.mw-parser-output .tabber__tab[ aria-selected='true' ] {
+			color: @darkmode-text;
+			background: #35475d;
+			border-color: @darkmode-link;
+		}
+
+		.mw-parser-output .navbox,
+		.mw-parser-output .navbox-subgroup,
+		.mw-parser-output .navbox-list {
+			color: @darkmode-text;
+			background-color: @darkmode-surface;
+			border-color: @darkmode-border;
+		}
+
+		.mw-parser-output .navbox th,
+		.mw-parser-output .navbox-title,
+		.mw-parser-output .navbox-group {
+			background-color: #35374e;
+		}
+
+		.mw-parser-output .navbox-even {
+			background-color: @darkmode-raised;
+		}
+
+		.mw-parser-output .tooltiptext,
+		.mw-parser-output .tierlist-hover-detail,
+		.nvtooltip {
+			color: @darkmode-text;
+			background: @darkmode-surface;
+			border-color: @darkmode-border;
+			box-shadow: 0 3px 12px rgba( 0, 0, 0, 0.35 );
+		}
+
+		.mw-parser-output .tooltiptext::after {
+			background-color: @darkmode-surface;
+			box-shadow: 1px 1px 0 @darkmode-border;
+		}
+
+		.mw-parser-output .tooltiptext a,
+		.mw-parser-output .tooltiptext a:visited {
+			color: @darkmode-link;
+		}
+
+		.nvtooltip h3,
+		.nvtooltip table,
+		.nvtooltip table td {
+			color: @darkmode-text;
+			background-color: @darkmode-raised;
+			border-color: @darkmode-border;
+		}
+
+		@import 'ext.DarkMode.gbf.less';
+	}
+}
+
+.mw-ui-icon-wikimedia-moon {
+	.cdx-mixin-css-icon( @cdx-icon-moon, @param-is-button-icon: true );
+}
+
+.mw-ui-icon-wikimedia-bright {
+	.cdx-mixin-css-icon( @cdx-icon-bright, @param-is-button-icon: true );
+}
+
+.skin-vector-legacy #pt-darkmode {
+	position: relative;
+	top: 4px;
+	padding-top: 0;
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+
+		&::before {
+			content: '';
+			.cdx-mixin-css-icon( @cdx-icon-moon, @param-fill-color: #72777d );
+		}
+
+		&:focus {
+			outline: 2px solid #36c;
+			outline-offset: 2px;
+		}
+
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		&:focus:not( :focus-visible ) {
+			outline: 0;
+		}
+
+		> span {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip-path: inset( 50% );
+			white-space: nowrap;
 		}
 	}
 }
 
-/* Hacks for older Firefox versions */
-@-moz-document url-prefix() {
-	body {
-		background: #000;
-	}
-}
-
-@-moz-document url-prefix() {
-	@supports (overflow-clip-margin: 1px) {
-		body {
-			background: #fff;
-		}
-	}
+.skin-theme-clientpref-night .skin-vector-legacy #pt-darkmode a::before,
+.client-darkmode .skin-vector-legacy #pt-darkmode a::before {
+	.cdx-mixin-css-icon( @cdx-icon-bright, @param-fill-color: @darkmode-muted );
 }

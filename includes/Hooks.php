@@ -3,20 +3,20 @@
 namespace MediaWiki\Extension\DarkMode;
 
 use Config;
-use ContextSource;
 use ExtensionRegistry;
-use Html;
 use IContextSource;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\SkinAddFooterLinksHook;
 use MediaWiki\Hook\SkinBuildSidebarHook;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
+use MediaWiki\Html\Html;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
 use Skin;
 use SkinTemplate;
 use User;
+use Wikimedia\ArrayUtils\ArrayUtils;
 
 class Hooks implements
 	SkinAddFooterLinksHook,
@@ -101,20 +101,28 @@ class Hooks implements
 		$insertUrls = [
 			'darkmode' => $this->getLinkAttrs( $skin ),
 		];
+		if ( $skin->getSkinName() === 'vector' && isset( $links['notifications'] ) ) {
+			$links['notifications'] += $insertUrls;
+			return;
+		}
 
-		// Adjust placement based on whether user is logged in or out.
-		if ( array_key_exists( 'mytalk', $links['user-menu'] ) ) {
-			$after = 'mytalk';
-		} elseif ( array_key_exists( 'anontalk', $links['user-menu'] ) ) {
-			$after = 'anontalk';
-		} else {
-			// Fallback to showing at the end.
-			$after = false;
-			$links['user-menu'] += $insertUrls;
+		$after = false;
+		foreach ( [ 'notifications-notice', 'notifications-alert', 'userpage', 'mytalk', 'anontalk' ] as $item ) {
+			if ( array_key_exists( $item, $links['user-menu'] ) ) {
+				$after = $item;
+				break;
+			}
 		}
 
 		if ( $after ) {
-			$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'], $insertUrls, $after );
+			if ( method_exists( ArrayUtils::class, 'insertAfter' ) ) {
+				// MW 1.46+
+				$links['user-menu'] = ArrayUtils::insertAfter( $links['user-menu'], $insertUrls, $after );
+			} else {
+				$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'], $insertUrls, $after );
+			}
+		} else {
+			$links['user-menu'] += $insertUrls;
 		}
 	}
 
@@ -144,22 +152,24 @@ class Hooks implements
 		if ( !self::shouldHaveDarkMode( $skin ) ) {
 			return;
 		}
-		$nonce = $out->getCSP()->getNonce();
-		$script = sprintf(
-			'<script%s>%s</script>',
-			$nonce !== false ? sprintf( ' nonce="%s"', $nonce ) : '',
-			'window.applyPref=()=>{let e="night"===localStorage.getItem("skin-theme");(c=document.querySelector("html")).classList.add(e?"skin-theme-clientpref-night":"skin-theme-clientpref-day"),e&&c.classList.add("client-darkmode")},window.applyPref();'
-		);
-		$out->addHeadItem( 'ext.DarkMode.inline', $script );
+		$override = $skin->getRequest()->getRawVal( 'usedarkmode' );
+		if ( $skin->getUser()->isAnon() && $override !== '0' && $override !== '1' ) {
+			$script = '(function(){var mode;try{mode=localStorage.getItem("skin-theme");}catch(e){return;}'
+				. 'if(mode!=="night"&&mode!=="day"){return;}var classes=document.documentElement.classList;'
+				. 'classes.toggle("skin-theme-clientpref-night",mode==="night");'
+				. 'classes.toggle("skin-theme-clientpref-day",mode==="day");'
+				. 'classes.toggle("client-darkmode",mode==="night");})();';
+			$nonce = $out->getCSP()->getNonce();
+			$out->addHeadItem( 'ext.DarkMode.inline', Html::rawElement(
+				'script',
+				[ 'nonce' => $nonce !== false ? $nonce : null ],
+				$script
+			) );
+		}
 		$out->addModules( 'ext.DarkMode' );
 		$out->addModuleStyles( 'ext.DarkMode.styles' );
 
 		if ( $this->isDarkModeActive( $skin ) ) {
-			// The class must be on the <html> element because the CSS filter creates a new stacking context.
-			// If we use the <body> instead (OutputPage::addBodyClasses), any fixed-positioned content
-			// will be hidden in accordance with the w3c spec: https://www.w3.org/TR/filter-effects-1/#FilterProperty
-			// Fixed elements may still be hidden in Firefox due to https://bugzilla.mozilla.org/show_bug.cgi?id=1650522
-			// client-darkmode is added for backwards compatibility.
 			$out->addHtmlClasses( [ 'skin-theme-clientpref-night', 'client-darkmode' ] );
 		} else {
 			$out->addHtmlClasses( 'skin-theme-clientpref-day' );
@@ -208,11 +218,11 @@ class Hooks implements
 	}
 
 	/**
-	 * @param ContextSource $context
+	 * @param IContextSource $context
 	 * @param string $additionalClasses
 	 * @return array
 	 */
-	private function getLinkAttrs( ContextSource $context, string $additionalClasses = '' ): array {
+	private function getLinkAttrs( IContextSource $context, string $additionalClasses = '' ): array {
 		$active = $this->isDarkModeActive( $context );
 
 		return [
@@ -223,17 +233,17 @@ class Hooks implements
 				'darkmode-default-link-tooltip' :
 				'darkmode-link-tooltip'
 			)->text(),
-			'icon' => $active ? 'moon' : 'bright',
+			'icon' => $active ? 'bright' : 'moon',
 		];
 	}
 
 	/**
 	 * Get the initial message text for the dark mode toggle link.
 	 *
-	 * @param ContextSource $context
+	 * @param IContextSource $context
 	 * @return string
 	 */
-	private function getLinkText( ContextSource $context ): string {
+	private function getLinkText( IContextSource $context ): string {
 		return $context->msg( $this->isDarkModeActive( $context )
 			? 'darkmode-default-link'
 			: 'darkmode-link'
