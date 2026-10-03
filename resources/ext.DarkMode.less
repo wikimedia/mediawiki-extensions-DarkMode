@@ -21,12 +21,22 @@
 		--color-emphasized: @darkmode-text;
 		--color-progressive: @darkmode-link;
 		--color-destructive: @darkmode-red;
+		--color-error: @darkmode-red;
+		--color-icon-base: @darkmode-muted;
+		--color-icon-progressive: @darkmode-link;
+		--color-icon-warning: #f0cc7a;
+		--color-icon-error: @darkmode-red;
+		--color-icon-success: #92cc9a;
 		--color-link: @darkmode-link;
 		--color-link--visited: @darkmode-visited;
 		--color-link-red: @darkmode-red;
 		--background-color-base: @darkmode-surface;
 		--background-color-neutral: @darkmode-raised;
 		--background-color-neutral-subtle: @darkmode-background;
+		--background-color-progressive-subtle: #263f59;
+		--background-color-warning-subtle: #4b4028;
+		--background-color-error-subtle: #513038;
+		--background-color-success-subtle: #2e4537;
 		--background-color-interactive: @darkmode-raised;
 		--background-color-interactive-subtle: @darkmode-surface;
 		--background-color-interactive--hover: #354354;
@@ -36,6 +46,10 @@
 		--border-color-subtle: @darkmode-border;
 		--border-color-interactive: #718096;
 		--border-color-muted: @darkmode-border;
+		--border-color-progressive: @darkmode-link;
+		--border-color-warning: #f0cc7a;
+		--border-color-error: @darkmode-red;
+		--border-color-success: #92cc9a;
 		--color-inverted: #151a21;
 		--color-placeholder: @darkmode-muted;
 		--color-disabled: #8793a3;
@@ -105,10 +119,6 @@
 			background-image: url( 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Cpath fill=%22%23acb7c5%22 d=%22M3 1a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm14 12h-4l-1 2H8l-1-2H3V3h14z%22/%3E%3C/svg%3E' );
 		}
 
-		#mw-panel {
-			background-color: rgba( 21, 26, 33, 0.94 );
-		}
-
 		#mw-panel .vector-menu-heading,
 		#footer,
 		#siteSub,
@@ -145,6 +155,16 @@
 
 		.vector-menu-tabs li.new a {
 			color: @darkmode-red;
+		}
+
+		.vector-menu-dropdown .mw-list-item a,
+		.vector-menu-dropdown .mw-list-item a:visited {
+			color: @darkmode-link;
+		}
+
+		.vector-menu-dropdown .mw-list-item.selected a,
+		.vector-menu-dropdown .mw-list-item.selected a:visited {
+			color: @darkmode-text;
 		}
 
 		.vector-menu-dropdown .vector-menu-content,
@@ -186,6 +206,77 @@
 		input::placeholder,
 		textarea::placeholder {
 			color: @darkmode-muted;
+		}
+
+		.action-edit {
+			/* OOUI's SVG icons need light fills; keep its white button icons. */
+			.oo-ui-iconElement-icon:not( .oo-ui-image-invert ),
+			.oo-ui-indicatorElement-indicator:not( .oo-ui-image-invert ),
+			.wikiEditor-ui-toolbar .tab a::before,
+			.wikiEditor-ui-toolbar .tool-select .label::after {
+				filter: invert( 1 ) hue-rotate( 180deg );
+			}
+
+			/* CodeMirror uses masks, so color these directly instead. */
+			.wikiEditor-ui {
+				.oo-ui-icon-syntax-highlight,
+				.oo-ui-icon-cm-search,
+				.oo-ui-icon-wrapping,
+				.oo-ui-icon-gotoLine,
+				.oo-ui-icon-pilcrow,
+				.oo-ui-icon-check-all,
+				.oo-ui-icon-preferences {
+					filter: none;
+					background-color: @darkmode-text;
+				}
+
+				.oo-ui-toggleWidget-on {
+					.oo-ui-icon-syntax-highlight,
+					.oo-ui-icon-cm-search,
+					.oo-ui-icon-wrapping,
+					.oo-ui-icon-gotoLine,
+					.oo-ui-icon-pilcrow,
+					.oo-ui-icon-check-all,
+					.oo-ui-icon-preferences {
+						background-color: @darkmode-link;
+					}
+				}
+			}
+
+			.wikiEditor-toolbar-dialog,
+			.wikiEditor-toolbar-dialog .ui-widget-content,
+			.wikiEditor-toolbar-dialog .ui-widget-header {
+				color: @darkmode-text;
+				background-color: @darkmode-surface;
+				background-image: none;
+				border-color: @darkmode-border;
+			}
+
+			/* Vector's jQuery UI backgrounds are marked !important. */
+			/* stylelint-disable declaration-no-important */
+			.wikiEditor-toolbar-dialog .ui-widget-header {
+				background: @darkmode-raised !important;
+			}
+
+			.wikiEditor-toolbar-dialog .ui-state-default {
+				color: @darkmode-link;
+				background: @darkmode-raised !important;
+				border-color: @darkmode-border !important;
+			}
+
+			.wikiEditor-toolbar-dialog .ui-state-hover {
+				background: #354354 !important;
+			}
+			/* stylelint-enable declaration-no-important */
+
+			.wikiEditor-toolbar-dialog .ui-icon {
+				filter: invert( 1 ) hue-rotate( 180deg );
+			}
+
+			.ui-widget-overlay {
+				background: #000;
+				opacity: 0.6;
+			}
 		}
 
 		.mw-ui-progressive,
@@ -230,12 +321,6 @@
 
 		.mw-parser-output table.wikitable > * > tr > th {
 			background-color: @darkmode-raised;
-		}
-
-		.mw-parser-output table.wikitable.stripe > * > tr:nth-child( even ) > td,
-		.mw-parser-output table.wikitable.stripe2 > * > tr:nth-child( 4n+1 ) > td,
-		.mw-parser-output table.wikitable.stripe2 > * > tr:nth-child( 4n+2 ) > td {
-			background-color: #252e3a;
 		}
 
 		pre,
@@ -293,35 +378,6 @@
 		.mw-parser-output .navbox-even {
 			background-color: @darkmode-raised;
 		}
-
-		.mw-parser-output .tooltiptext,
-		.mw-parser-output .tierlist-hover-detail,
-		.nvtooltip {
-			color: @darkmode-text;
-			background: @darkmode-surface;
-			border-color: @darkmode-border;
-			box-shadow: 0 3px 12px rgba( 0, 0, 0, 0.35 );
-		}
-
-		.mw-parser-output .tooltiptext::after {
-			background-color: @darkmode-surface;
-			box-shadow: 1px 1px 0 @darkmode-border;
-		}
-
-		.mw-parser-output .tooltiptext a,
-		.mw-parser-output .tooltiptext a:visited {
-			color: @darkmode-link;
-		}
-
-		.nvtooltip h3,
-		.nvtooltip table,
-		.nvtooltip table td {
-			color: @darkmode-text;
-			background-color: @darkmode-raised;
-			border-color: @darkmode-border;
-		}
-
-		@import 'ext.DarkMode.gbf.less';
 	}
 }
 
