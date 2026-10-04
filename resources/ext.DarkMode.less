@@ -34,6 +34,8 @@
 		--background-color-neutral: @darkmode-raised;
 		--background-color-neutral-subtle: @darkmode-background;
 		--background-color-progressive-subtle: #263f59;
+		--background-color-content-added: #294d73;
+		--background-color-content-removed: #66502a;
 		--background-color-warning-subtle: #4b4028;
 		--background-color-error-subtle: #513038;
 		--background-color-success-subtle: #2e4537;
@@ -84,6 +86,19 @@
 		hr {
 			background-color: @darkmode-border;
 			border-color: @darkmode-border;
+		}
+
+		.diff-addedline,
+		.diff-deletedline {
+			background-color: @darkmode-background;
+		}
+
+		.diff-addedline {
+			border-color: @darkmode-link;
+		}
+
+		.diff-deletedline {
+			border-color: #f0cc7a;
 		}
 
 		a,
